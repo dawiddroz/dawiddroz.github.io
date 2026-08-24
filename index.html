@@ -3,79 +3,345 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dawid Drozdowski — Siti web per imprese e professionisti</title>
-<meta name="description" content="Portfolio di siti vetrina e aziendali: ristorazione, professionisti, commercio e servizi. Produzione white-label per agenzie, consegna 48/72 ore.">
-<style>
-  :root{--ink:#16181d;--muted:#6b7280;--line:#e5e7eb;--bg:#fcfcfa}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font:16px/1.65 Georgia,'Times New Roman',serif;color:var(--ink);background:var(--bg);
-       max-width:960px;margin:0 auto;padding:64px 24px 48px}
-  header p.kicker{font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;letter-spacing:.18em;
-       text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-  h1{font-size:clamp(28px,5vw,44px);line-height:1.15;font-weight:400;margin-bottom:14px}
-  h1 em{font-style:italic}
-  header p.sub{color:var(--muted);max-width:56ch;margin-bottom:8px}
-  header p.contact{font-family:ui-sans-serif,system-ui,sans-serif;font-size:14px;margin-top:10px}
-  header a{color:var(--ink)}
-  hr{border:0;border-top:1px solid var(--line);margin:36px 0}
-  section{margin-bottom:34px}
-  section h2{font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;letter-spacing:.18em;
-       text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
-  .card{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:#fff}
-  .card b{display:block;font-weight:600;font-size:15px;margin-bottom:4px}
-  .card span{font-family:ui-sans-serif,system-ui,sans-serif;font-size:13px;color:var(--muted)}
-  .note{font-family:ui-sans-serif,system-ui,sans-serif;font-size:13.5px;color:var(--muted);
-       max-width:62ch;border-left:2px solid var(--line);padding-left:14px;margin-top:10px}
-  footer{font-family:ui-sans-serif,system-ui,sans-serif;font-size:13px;color:var(--muted);
-       border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  @media(max-width:640px){body{padding:40px 18px}}
-</style>
+<title>Dawid Drozdowski — Produzione siti web white-label per agenzie</title>
+<meta name="description" content="Laboratorio di produzione siti web white-label: design editoriale, motion design, consegna 48/72 ore. Vetrina 400€, landing 250€, e-commerce 700€. Portfolio pubblico di 33 siti.">
+<meta property="og:title" content="Dawid Drozdowski — Produzione siti web white-label">
+<meta property="og:description" content="Design editoriale, motion curato, consegna 48/72 ore. 33 siti pubblicati.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0c0e'/%3E%3Crect x='6' y='6' width='20' height='20' fill='none' stroke='%23e8a33d' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<noscript><style>
+.reveal, .hero__badge, .hero__sub, .hero__cta, .hero__meta, .hero__scroll, .hero__title .word span { opacity: 1 !important; transform: none !important; animation: none !important; }
+</style></noscript>
 </head>
 <body>
-<header>
-  <p class="kicker">Dawid Drozdowski · Sviluppo web</p>
-  <h1>Siti web per imprese, studi e professionisti.<br><em>Produzione white-label per agenzie.</em></h1>
-  <p class="sub">Oltre quaranta progetti pubblicati tra Roma sud e i Castelli Romani: ristorazione, studi
-  professionali, commercio, arti e benessere. Design curato, animazioni fluide, siti veloci e pronti
-  per la ricerca locale.</p>
-  <p class="contact"><a href="mailto:dawid.drozdowski@pec.it">dawid.drozdowski@pec.it</a> · <a href="tel:+393801931587">+39 380 193 1587</a></p>
+<div class="progress-bar"></div>
+<div class="tech-grid" aria-hidden="true"></div>
+
+<nav class="nav">
+  <a class="nav__brand" href="#top"><span class="dot"></span><span>Dawid&nbsp;<b>Drozdowski</b></span></a>
+  <div class="nav__links">
+    <a href="#lavori">Lavori</a>
+    <a href="#indice">Indice</a>
+    <a href="#metodo">Metodo</a>
+    <a href="#offerta">Offerta</a>
+    <a href="#contatti">Contatti</a>
+  </div>
+  <div class="nav__status"><span class="pulse"></span><span>DISPONIBILE · SET 2026</span></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero__frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="scanline" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <p class="hero__badge"><span class="dot"></span> Produzione white-label per agenzie · Roma sud &amp; Castelli Romani</p>
+    <h1 class="hero__title">
+      <span class="word"><span>Siti</span></span>
+      <span class="word"><span>che</span></span>
+      <span class="word"><span>sembrano</span></span><br>
+      <span class="word"><span>costare</span></span>
+      <span class="word"><span><em>il&nbsp;doppio.</em></span></span>
+    </h1>
+    <p class="hero__sub">Laboratorio di produzione siti web alle spalle delle agenzie: <strong>design editoriale, motion curato, white-label totale</strong>. Voi vendete al vostro prezzo, io produco in 48/72 ore. Nessun riferimento al produttore nei deliverable.</p>
+    <div class="hero__cta">
+      <a class="btn btn--solid" href="#lavori"><span>Vedi i lavori</span></a>
+      <a class="btn" href="#offerta"><span>Listino wholesale</span></a>
+    </div>
+    <div class="hero__meta">
+      <div class="m"><div class="m-v"><span class="counter" data-count="33">33</span></div><div class="m-k">Siti pubblicati</div></div>
+      <div class="m"><div class="m-v"><em>48/72</em>h</div><div class="m-k">Consegna dai materiali</div></div>
+      <div class="m"><div class="m-v"><em>0</em> riferimenti</div><div class="m-k">White-label garantito</div></div>
+      <div class="m"><div class="m-v"><em>2</em> round</div><div class="m-k">Revisioni incluse</div></div>
+    </div>
+  </div>
+  <p class="hero__scroll">Scroll</p>
 </header>
 
-<hr>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Ristorazione <b>·</b></span><span>Studi professionali <b>·</b></span><span>Industria <b>·</b></span><span>Arti e mestieri <b>·</b></span><span>Benessere <b>·</b></span><span>Accoglienza <b>·</b></span><span>Sport <b>·</b></span><span>Commercio <b>·</b></span>
+    <span>Ristorazione <b>·</b></span><span>Studi professionali <b>·</b></span><span>Industria <b>·</b></span><span>Arti e mestieri <b>·</b></span><span>Benessere <b>·</b></span><span>Accoglienza <b>·</b></span><span>Sport <b>·</b></span><span>Commercio <b>·</b></span>
+  </div>
+</div>
 
-<section>
-  <h2>Cosa portano i miei progetti</h2>
-  <div class="grid">
-    <div class="card"><b>Movimento che vende</b><span>GSAP + ScrollTrigger + Lenis: hero animate, reveal fluidi, micro-interazioni — mai pagine statiche.</span></div>
-    <div class="card"><b>Velocità reale</b><span>Font self-hosted, immagini ottimizzate, layout senza salti: caricamento rapido anche su mobile.</span></div>
-    <div class="card"><b>SEO tecnica</b><span>Dati strutturati schema.org, Open Graph, gerarchie pulite: pronti per la ricerca locale.</span></div>
-    <div class="card"><b>Il telefono che suona</b><span>CTA su misura: telefono, WhatsApp, recensioni Google — ciò che fa partire il contatto.</span></div>
+<section class="section work" id="lavori">
+  <div class="section__head reveal">
+    <h2 class="section__title">Lavori <em>selezionati</em></h2>
+    <p class="section__note">Trascina o usa le frecce — 33 pubblicati, 6 in vetrina</p>
+  </div>
+  <div class="work__viewport">
+    <div class="work__track" id="workTrack">
+
+      <figure class="card reveal">
+        <div class="card__poster">
+          <span class="card__tag">Ristorazione</span>
+          <svg viewBox="0 0 480 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Anteprima grafica Trattoria Dei Cacciatori">
+            <rect width="480" height="250" fill="#F2EDE4"/>
+            <rect x="0" y="0" width="205" height="250" fill="#F2EDE4"/>
+            <rect x="205" y="0" width="275" height="250" fill="#1F3D2B"/>
+            <circle cx="360" cy="105" r="62" fill="#C96F4A" opacity="0.92"/>
+            <rect x="228" y="180" width="220" height="1.5" fill="#F2EDE4" opacity="0.5"/>
+            <text x="34" y="150" font-family="Georgia,serif" font-size="64" font-style="italic" fill="#1F3D2B">Dei</text>
+            <text x="34" y="205" font-family="Georgia,serif" font-size="58" fill="#C96F4A">Cacciatori</text>
+            <rect x="34" y="52" width="46" height="1.5" fill="#1F3D2B"/>
+            <text x="34" y="72" font-family="monospace" font-size="9" letter-spacing="3" fill="#1F3D2B" opacity="0.7">TRATTORIA · 1970</text>
+          </svg>
+        </div>
+        <div class="card__body">
+          <h3 class="card__name">Trattoria <em>Dei Cacciatori</em></h3>
+          <p class="card__desc">Layout editoriale split, tipografia serif con accenti corsivi, 4.3★ con 834 recensioni in vista. Il pezzo forte.</p>
+          <div class="card__foot"><span>Velletri · Astro</span><a class="go" href="https://dawiddroz.github.io/trattoria-dei-cacciatori-velletri/" target="_blank" rel="noopener">Apri</a></div>
+        </div>
+      </figure>
+
+      <figure class="card reveal">
+        <div class="card__poster">
+          <span class="card__tag">Ristorazione</span>
+          <svg viewBox="0 0 480 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Anteprima grafica Il Momento">
+            <rect width="480" height="250" fill="#12291C"/>
+            <circle cx="240" cy="125" r="86" fill="none" stroke="#D9A441" stroke-width="1" opacity="0.5"/>
+            <circle cx="240" cy="125" r="64" fill="#1A3626"/>
+            <text x="240" y="150" text-anchor="middle" font-family="Georgia,serif" font-size="72" font-style="italic" fill="#D9A441">M</text>
+            <rect x="60" y="210" width="360" height="1" fill="#D9A441" opacity="0.35"/>
+            <text x="60" y="72" font-family="monospace" font-size="9" letter-spacing="3" fill="#D9A441" opacity="0.75">RISTORANTE · VELLETRI</text>
+            <rect x="392" y="34" width="28" height="1" fill="#D9A441"/>
+          </svg>
+        </div>
+        <div class="card__body">
+          <h3 class="card__name">Il <em>Momento</em></h3>
+          <p class="card__desc">Lo stack motion più ricco del catalogo: GSAP + ScrollTrigger + Lenis, hero food a tutta pagina, prenotazione diretta.</p>
+          <div class="card__foot"><span>Velletri · Astro</span><a class="go" href="https://dawiddroz.github.io/il-momento-velletri/" target="_blank" rel="noopener">Apri</a></div>
+        </div>
+      </figure>
+
+      <figure class="card reveal">
+        <div class="card__poster">
+          <span class="card__tag">Professionisti</span>
+          <svg viewBox="0 0 480 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Anteprima grafica Studio Notarile Squillaci">
+            <rect width="480" height="250" fill="#EFE9DC"/>
+            <rect x="0" y="0" width="480" height="64" fill="#1E2A4A"/>
+            <rect x="52" y="110" width="90" height="140" fill="#1E2A4A" opacity="0.12"/>
+            <rect x="160" y="140" width="90" height="110" fill="#1E2A4A" opacity="0.2"/>
+            <rect x="268" y="96" width="90" height="154" fill="#1E2A4A" opacity="0.32"/>
+            <text x="380" y="200" font-family="Georgia,serif" font-size="96" fill="#1E2A4A">S</text>
+            <text x="52" y="96" font-family="monospace" font-size="9" letter-spacing="3" fill="#1E2A4A" opacity="0.85">STUDIO NOTARILE</text>
+            <rect x="52" y="52" width="60" height="1" fill="#B08D3E"/>
+          </svg>
+        </div>
+        <div class="card__body">
+          <h3 class="card__name">Studio Notarile <em>Squillaci</em></h3>
+          <p class="card__desc">Istituzionale ma non freddo: carta, blu notte, oro. La serietà che uno studio notarile deve trasmettere.</p>
+          <div class="card__foot"><span>Frascati · Vanilla</span><a class="go" href="https://dawiddroz.github.io/studio-notarile-squillaci-frascati/" target="_blank" rel="noopener">Apri</a></div>
+        </div>
+      </figure>
+
+      <figure class="card reveal">
+        <div class="card__poster">
+          <span class="card__tag">Professionisti</span>
+          <svg viewBox="0 0 480 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Anteprima grafica Notaio Minniti">
+            <rect width="480" height="250" fill="#101C33"/>
+            <path d="M140 250 L140 130 A70 70 0 0 1 280 130 L280 250 Z" fill="#1A2B4D"/>
+            <path d="M170 250 L170 140 A40 40 0 0 1 250 140 L250 250 Z" fill="#101C33"/>
+            <text x="330" y="160" font-family="Georgia,serif" font-size="84" font-style="italic" fill="#C9A45C">N</text>
+            <rect x="60" y="40" width="360" height="1" fill="#C9A45C" opacity="0.3"/>
+            <text x="60" y="72" font-family="monospace" font-size="9" letter-spacing="3" fill="#C9A45C" opacity="0.8">NOTAIO · GENZANO</text>
+          </svg>
+        </div>
+        <div class="card__body">
+          <h3 class="card__name">Notaio <em>Minniti</em></h3>
+          <p class="card__desc">Architetture in controluce, serif d'oro, struttura chiara per atti e servizi. Il classico che non passa di moda.</p>
+          <div class="card__foot"><span>Genzano · Vanilla</span><a class="go" href="https://dawiddroz.github.io/notaio-minniti-giuseppe-genzano/" target="_blank" rel="noopener">Apri</a></div>
+        </div>
+      </figure>
+
+      <figure class="card reveal">
+        <div class="card__poster">
+          <span class="card__tag">Industria</span>
+          <svg viewBox="0 0 480 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Anteprima grafica FB Opere Speciali">
+            <rect width="480" height="250" fill="#0D0F11"/>
+            <g stroke="#23282E" stroke-width="1">
+              <line x1="0" y1="62" x2="480" y2="62"/><line x1="0" y1="125" x2="480" y2="125"/><line x1="0" y1="188" x2="480" y2="188"/>
+              <line x1="120" y1="0" x2="120" y2="250"/><line x1="240" y1="0" x2="240" y2="250"/><line x1="360" y1="0" x2="360" y2="250"/>
+            </g>
+            <line x1="40" y1="230" x2="200" y2="20" stroke="#E8A33D" stroke-width="1.5"/>
+            <circle cx="200" cy="20" r="5" fill="#E8A33D"/>
+            <text x="256" y="140" font-family="monospace" font-size="52" font-weight="bold" fill="#ECE9E2">FB</text>
+            <text x="256" y="170" font-family="monospace" font-size="10" letter-spacing="4" fill="#8A8F98">PERFORAZIONI · GEO</text>
+          </svg>
+        </div>
+        <div class="card__body">
+          <h3 class="card__name">FB Opere <em>Speciali</em></h3>
+          <p class="card__desc">Dark industrial con HUD tecnico e gallery scroll-linked: geotecnica raccontata come ingegneria, non come vetroresina.</p>
+          <div class="card__foot"><span>Velletri · Motion+Lenis</span><a class="go" href="https://dawiddroz.github.io/fb-opere-speciali/" target="_blank" rel="noopener">Apri</a></div>
+        </div>
+      </figure>
+
+      <figure class="card reveal">
+        <div class="card__poster">
+          <span class="card__tag">Local</span>
+          <svg viewBox="0 0 480 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Anteprima grafica No More Tears">
+            <rect width="480" height="250" fill="#0B0B0D"/>
+            <g>
+              <rect x="52" y="0" width="14" height="250" fill="#B3273A"/>
+              <rect x="80" y="0" width="14" height="250" fill="#ECE9E2"/>
+              <rect x="108" y="0" width="14" height="250" fill="#B3273A"/>
+            </g>
+            <text x="170" y="130" font-family="Georgia,serif" font-size="58" fill="#ECE9E2">No More</text>
+            <text x="170" y="190" font-family="Georgia,serif" font-size="58" font-style="italic" fill="#B3273A">Tears</text>
+            <text x="170" y="222" font-family="monospace" font-size="9" letter-spacing="3" fill="#8A8F98">TATTOO &amp; BARBER · GENZANO</text>
+          </svg>
+        </div>
+        <div class="card__body">
+          <h3 class="card__name">No More <em>Tears</em></h3>
+          <p class="card__desc">Tattoo &amp; barber: nero, rosso, carattere. Il sito di un'attività che vive di identità deve avere identità.</p>
+          <div class="card__foot"><span>Genzano · Vanilla</span><a class="go" href="https://dawiddroz.github.io/no-more-tears-genzano/" target="_blank" rel="noopener">Apri</a></div>
+        </div>
+      </figure>
+
+    </div>
+  </div>
+  <div class="work__nav">
+    <button class="work__btn" id="workPrev" aria-label="Indietro">←</button>
+    <button class="work__btn" id="workNext" aria-label="Avanti">→</button>
+    <div class="work__progress"><i id="workBar"></i></div>
   </div>
 </section>
 
-<section>
-  <h2>Case study per settore</h2>
-  <div class="grid">
-    <div class="card"><b>Ristorazione · 10+ progetti</b><span>Osterie storiche, ristoranti di pesce, frasche contemporanee, trattorie tradizionali e wine bar dei Castelli Romani.</span></div>
-    <div class="card"><b>Professionisti · 8 progetti</b><span>Studi notarili, legali e commercialisti: istituzionali sobri che trasmettono fiducia con contatto diretto.</span></div>
-    <div class="card"><b>Commercio e arti · 12+ progetti</b><span>Marmisti, falegnamerie, termoidraulici, elettromeccaniche e forniture: cataloghi chiari, preventivi facili.</span></div>
-    <div class="card"><b>Benessere e accoglienza · 10+ progetti</b><span>Centri estetici, spa, B&amp;B e barber shop: eleganza, gallery curate, prenotazione immediata.</span></div>
+<section class="section" id="indice">
+  <div class="section__head reveal">
+    <h2 class="section__title">Indice <em>completo</em></h2>
+    <p class="section__note">33 siti pubblicati · github.com/dawiddroz</p>
   </div>
-  <p class="note">Per correttezza verso i clienti, questa pagina non espone nomi e riferimenti delle attività:
-  i link diretti ai singoli casi — scelti per il tuo settore — vengono condivisi al primo contatto.
-  Ogni progetto è una demo completa funzionante in versione desktop e mobile.</p>
+  <div class="cats">
+    <div class="cat reveal">
+      <div class="cat__row"><span class="cat__num">01</span><span class="cat__name">Ristorazione</span><span class="cat__meta">10 siti</span></div>
+      <div class="cat__sites">
+        <a class="chip" href="https://dawiddroz.github.io/trattoria-dei-cacciatori-velletri/" target="_blank" rel="noopener">Dei Cacciatori</a>
+        <a class="chip" href="https://dawiddroz.github.io/il-momento-velletri/" target="_blank" rel="noopener">Il Momento</a>
+        <a class="chip" href="https://dawiddroz.github.io/tavola-viva-velletri/" target="_blank" rel="noopener">Tavola Viva</a>
+        <a class="chip" href="https://dawiddroz.github.io/grappolo-doro-frascati/" target="_blank" rel="noopener">Grappolo d'Oro</a>
+        <a class="chip" href="https://dawiddroz.github.io/il-tettuccio-frascati/" target="_blank" rel="noopener">Il Tettuccio</a>
+        <a class="chip" href="https://dawiddroz.github.io/fontana-vecchia-frascati/" target="_blank" rel="noopener">Fontana Vecchia</a>
+        <a class="chip" href="https://dawiddroz.github.io/na-fojetta-frascati/" target="_blank" rel="noopener">'Na Fojetta</a>
+        <a class="chip" href="https://dawiddroz.github.io/vini-e-cucina-da-giovanni/" target="_blank" rel="noopener">Vini e Cucina</a>
+        <a class="chip" href="https://dawiddroz.github.io/il-sotterraneo-osteria-urbana/" target="_blank" rel="noopener">Il Sotterraneo</a>
+        <a class="chip" href="https://dawiddroz.github.io/la-fenice-rebuild/" target="_blank" rel="noopener">La Fenice</a>
+      </div>
+    </div>
+    <div class="cat reveal">
+      <div class="cat__row"><span class="cat__num">02</span><span class="cat__name">Professionisti</span><span class="cat__meta">8 siti</span></div>
+      <div class="cat__sites">
+        <a class="chip" href="https://dawiddroz.github.io/studio-notarile-squillaci-frascati/" target="_blank" rel="noopener">Notarile Squillaci</a>
+        <a class="chip" href="https://dawiddroz.github.io/notaio-minniti-giuseppe-genzano/" target="_blank" rel="noopener">Notaio Minniti</a>
+        <a class="chip" href="https://dawiddroz.github.io/notaio-federica-de-sanctis-albano/" target="_blank" rel="noopener">Notaio De Sanctis</a>
+        <a class="chip" href="https://dawiddroz.github.io/studio-legale-lucantoni-genzano/" target="_blank" rel="noopener">Legale Lucantoni</a>
+        <a class="chip" href="https://dawiddroz.github.io/studio-legale-cinque-archi/" target="_blank" rel="noopener">Cinque Archi</a>
+        <a class="chip" href="https://dawiddroz.github.io/sciamanna-studio-legale-ariccia/" target="_blank" rel="noopener">Legale Sciamanna</a>
+        <a class="chip" href="https://dawiddroz.github.io/garcea-studio-commerciale-velletri/" target="_blank" rel="noopener">Garcea</a>
+        <a class="chip" href="https://dawiddroz.github.io/mascetti-arturo-velletri/" target="_blank" rel="noopener">Mascetti</a>
+      </div>
+    </div>
+    <div class="cat reveal">
+      <div class="cat__row"><span class="cat__num">03</span><span class="cat__name">Commercio, arti e servizi</span><span class="cat__meta">9 siti</span></div>
+      <div class="cat__sites">
+        <a class="chip" href="https://dawiddroz.github.io/fb-opere-speciali/" target="_blank" rel="noopener">FB Opere Speciali</a>
+        <a class="chip" href="https://dawiddroz.github.io/veliterna-peperino-velletri/" target="_blank" rel="noopener">Veliterna Peperino</a>
+        <a class="chip" href="https://dawiddroz.github.io/gs-marmi-albano-laziale/" target="_blank" rel="noopener">GS Marmi</a>
+        <a class="chip" href="https://dawiddroz.github.io/di-belardino-falegnameria-velletri/" target="_blank" rel="noopener">Falegnameria Di Belardino</a>
+        <a class="chip" href="https://dawiddroz.github.io/termoidraulica-la-fenice-velletri/" target="_blank" rel="noopener">Termoidraulica La Fenice</a>
+        <a class="chip" href="https://dawiddroz.github.io/tesis-srl-velletri/" target="_blank" rel="noopener">Tesis</a>
+        <a class="chip" href="https://dawiddroz.github.io/electric-systems-automation-velletri/" target="_blank" rel="noopener">Electric Systems</a>
+        <a class="chip" href="https://dawiddroz.github.io/idrotermoedil-genzano/" target="_blank" rel="noopener">Idrotermoedil</a>
+        <a class="chip" href="https://dawiddroz.github.io/no-more-tears-genzano/" target="_blank" rel="noopener">No More Tears</a>
+      </div>
+    </div>
+    <div class="cat reveal">
+      <div class="cat__row"><span class="cat__num">04</span><span class="cat__name">Benessere e accoglienza</span><span class="cat__meta">6 siti</span></div>
+      <div class="cat__sites">
+        <a class="chip" href="https://dawiddroz.github.io/armonia-e-benessere-velletri/" target="_blank" rel="noopener">Armonia &amp; Benessere</a>
+        <a class="chip" href="https://dawiddroz.github.io/il-sole-dentro-velletri/" target="_blank" rel="noopener">Il Sole Dentro</a>
+        <a class="chip" href="https://dawiddroz.github.io/gigi-bb-ariccia/" target="_blank" rel="noopener">GiGi B&amp;B</a>
+        <a class="chip" href="https://dawiddroz.github.io/il-violoncello-bb-velletri/" target="_blank" rel="noopener">Il Violoncello</a>
+        <a class="chip" href="https://dawiddroz.github.io/circolo-sportivo-arcobaleno-velletri/" target="_blank" rel="noopener">Circolo Arcobaleno</a>
+        <a class="chip" href="https://dawiddroz.github.io/no-more-tears-genzano/" target="_blank" rel="noopener">No More Tears</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>White-label per agenzie</h2>
-  <p class="sub">Siti consegnati pronti alla pubblicazione col brand dell'agenzia, in 48/72 ore.
-  Design system dedicato al cliente finale, nessun conflitto d'interessi, NDA disponibile.</p>
+<section class="section" id="metodo">
+  <div class="section__head reveal">
+    <h2 class="section__title">Come <em>lavoro</em></h2>
+    <p class="section__note">Brief → anteprima live → consegna</p>
+  </div>
+  <div class="method__grid">
+    <div class="step reveal" data-n="01">
+      <p class="step__k">01 · Brief</p>
+      <h3 class="step__t">Scheda progetto, 10 minuti</h3>
+      <p class="step__d">Settore, sezioni, testi, logo, foto, riferimenti. Niente call infinite: una scheda compilata e si parte. I ritardi sui materiali sospendono il conteggio dei tempi, per trasparenza.</p>
+    </div>
+    <div class="step reveal" data-n="02">
+      <p class="step__k">02 · Anteprima live</p>
+      <h3 class="step__t">Link commentabile in 48h</h3>
+      <p class="step__d">L'agenzia vede il sito vero, su un link condivisibile col cliente finale, e lascia le correzioni direttamente sull'anteprima. Due round di revisioni inclusi.</p>
+    </div>
+    <div class="step reveal" data-n="03">
+      <p class="step__k">03 · Consegna</p>
+      <h3 class="step__t">Dominio, sorgenti, silenzio</h3>
+      <p class="step__d">Deploy sul dominio dell'agenzia, file sorgente consegnati, nessun credito, nessun watermark. Il sito è vostro e del vostro cliente. Punto.</p>
+    </div>
+  </div>
 </section>
 
-<footer>
-  <span>Dawid Drozdowski · Siti web · Castelli Romani / Roma Sud</span>
-  <span><a href="mailto:dawid.drozdowski@pec.it">PEC</a> · WhatsApp e chiamata: 380 193 1587</span>
+<section class="section offer" id="offerta">
+  <div class="offer__grid">
+    <div class="reveal">
+      <h2 class="section__title">Il <em>listino</em></h2>
+      <p class="offer__text" style="margin-top:26px">Prezzi di produzione wholesale, IVA esclusa: l'agenzia applica il proprio margine e resta l'unico interlocutore del cliente finale. Hosting e manutenzione gestiti da me con il cliente finale a 29€/mese, o rivenduti all'agenzia a 15€/mese per sito: il ricorrente resta vostro.</p>
+      <p class="offer__fine">Pagamenti: 50% alla conferma, 50% alla consegna · Contratto quadro e NDA su richiesta</p>
+    </div>
+    <div class="price-list reveal">
+      <div class="price"><div><div class="price__n">Landing page</div><div class="price__d">Consegna 48h</div></div><div class="price__v">250€</div></div>
+      <div class="price"><div><div class="price__n">Sito vetrina</div><div class="price__d">Consegna 72h</div></div><div class="price__v">400€</div></div>
+      <div class="price"><div><div class="price__n">Pagina extra</div><div class="price__d">Sul progetto in corso</div></div><div class="price__v">50€</div></div>
+      <div class="price"><div><div class="price__n">E-commerce base</div><div class="price__d">Consegna 5 giorni</div></div><div class="price__v">700€</div></div>
+      <div class="price"><div><div class="price__n">Revisioni extra</div><div class="price__d">Oltre i 2 round inclusi</div></div><div class="price__v">30€<small>/h</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contatti">
+  <h2 class="contact__big reveal">Costruiamo il <em>prossimo</em> progetto.</h2>
+  <div class="contact__row">
+    <a class="contact__card reveal" href="mailto:dawid.drozdowski@pec.it">
+      <p class="k">Email PEC</p>
+      <p class="v">dawid.drozdowski@pec.it<small>Risposta entro 24 ore lavorative</small></p>
+    </a>
+    <a class="contact__card reveal" href="tel:+393801931587">
+      <p class="k">Telefono · WhatsApp</p>
+      <p class="v">+39 380 193 1587<small>Per i progetti in corsa, direttamente</small></p>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <span>© <span id="year">2026</span> Dawid Drozdowski</span>
+  <span><a href="https://github.com/dawiddroz" target="_blank" rel="noopener">github.com/dawiddroz</a></span>
+  <span>White-label · Roma sud &amp; Castelli Romani</span>
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.13/dist/lenis.min.js" defer></script>
+<script>
+/* delay word-reveal: sincrono a fine body, prima del primo paint */
+document.querySelectorAll('.hero__title .word span').forEach(function(el, i) {
+  el.style.animationDelay = (0.15 + i * 0.07) + 's';
+});
+</script>
+<script src="js/main.js" defer></script>
 </body>
 </html>

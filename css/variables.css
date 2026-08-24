@@ -1,0 +1,18 @@
+:root {
+  --bg: #0a0c0e;
+  --bg-2: #0e1114;
+  --bg-3: #13171b;
+  --ink: #ece9e2;
+  --muted: #8a8f98;
+  --faint: #565b63;
+  --amber: #e8a33d;
+  --amber-deep: #c9822a;
+  --line: rgba(236, 233, 226, 0.09);
+  --line-soft: rgba(236, 233, 226, 0.05);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Space Grotesk', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --header-h: 76px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --pad: clamp(20px, 5vw, 72px);
+}
