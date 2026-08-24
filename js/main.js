@@ -127,6 +127,24 @@ document.querySelectorAll('a[href^="#"]').forEach(function (a) {
   }
   window.__gsapReady = true;
 
+  /* split titoli di sezione in parole (reveal mascherato) */
+  document.querySelectorAll('.section__title, .contact__big').forEach(function (el) {
+    if (el.dataset.split) return;
+    el.dataset.split = '1';
+    var parts = [];
+    el.childNodes.forEach(function (node) {
+      if (node.nodeType === 3) {
+        node.textContent.split(/\s+/).forEach(function (w) { if (w) parts.push({ t: w, em: false }); });
+      } else if (node.nodeType === 1) {
+        node.textContent.split(/\s+/).forEach(function (w) { if (w) parts.push({ t: w, em: true }); });
+      }
+    });
+    el.innerHTML = parts.map(function (p) {
+      return '<span class="sw"><span class="swi' + (p.em ? ' em' : '') + '">' + p.t + '</span></span>';
+    }).join(' ');
+  });
+  gsap.utils.toArray('.swi').forEach(function (el) { gsap.set(el, { yPercent: 115 }); });
+
   /* reveal individuali, once:true, ZERO onLeaveBack */
   gsap.utils.toArray('.reveal').forEach(function (el) {
     ScrollTrigger.create({
@@ -137,6 +155,21 @@ document.querySelectorAll('a[href^="#"]').forEach(function (a) {
         gsap.fromTo(el,
           { opacity: 0, y: 42 },
           { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' }
+        );
+      }
+    });
+  });
+
+  /* reveal mascherato delle parole dei titoli */
+  gsap.utils.toArray('.swi').forEach(function (el) {
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 90%',
+      once: true,
+      onEnter: function () {
+        gsap.fromTo(el,
+          { yPercent: 115 },
+          { yPercent: 0, duration: 0.95, ease: 'power4.out' }
         );
       }
     });
@@ -165,6 +198,121 @@ setTimeout(function () {
 /* ---------- Anno footer ---------- */
 var y = document.getElementById('year');
 if (y) y.textContent = String(new Date().getFullYear());
+
+/* ---------- PRELOADER ---------- */
+(function initLoader() {
+  var loader = document.getElementById('loader');
+  if (!loader) { document.documentElement.classList.add('hero-ready'); return; }
+  var count = document.getElementById('loaderCount');
+  var bar = document.getElementById('loaderBar');
+  if (window.lenis && window.lenis.stop) { try { window.lenis.stop(); } catch (e) {} }
+  var t0 = performance.now();
+  var DURATION = 1400;
+  var done = false;
+  function finish() {
+    if (done) return;
+    done = true;
+    if (count) count.innerHTML = '1<em>00</em>';
+    setTimeout(function () {
+      loader.classList.add('is-done');
+      document.documentElement.classList.add('hero-ready');
+      if (window.lenis && window.lenis.start) { try { window.lenis.start(); } catch (e) {} }
+      setTimeout(function () { loader.style.display = 'none'; }, 950);
+    }, 200);
+  }
+  setTimeout(finish, 4000); /* hard timeout: mai bloccare l'hero (es. tab in background) */
+  function frame(now) {
+    var p = Math.min((now - t0) / DURATION, 1);
+    var eased = 1 - Math.pow(1 - p, 2);
+    var n = Math.round(eased * 100);
+    if (count) count.textContent = (n < 10 ? '00' : n < 100 ? '0' : '') + n;
+    if (bar) bar.style.transform = 'scaleX(' + eased + ')';
+    if (p < 1) requestAnimationFrame(frame);
+    else finish();
+  }
+  requestAnimationFrame(frame);
+})();
+
+/* ---------- MARQUEE con velocità legata allo scroll ---------- */
+(function initMarquee() {
+  var track = document.querySelector('.marquee__track');
+  var wrap = document.querySelector('.marquee');
+  if (!track) return;
+  var x = 0, speed = 1, target = 1, last = performance.now();
+  if (wrap) {
+    wrap.addEventListener('mouseenter', function () { target = 0.12; });
+    wrap.addEventListener('mouseleave', function () { target = 1; });
+  }
+  var tryLenis = function (n) {
+    if (window.lenis && window.lenis.on) {
+      window.lenis.on('scroll', function (e) {
+        var v = Math.abs(e.velocity || 0);
+        if (target < 1) return; /* hover ha la priorità */
+        target = 1 + Math.min(v * 0.14, 4);
+        clearTimeout(window.__mqT);
+        window.__mqT = setTimeout(function () { target = 1; }, 140);
+      });
+    } else if (n > 0) setTimeout(function () { tryLenis(n - 1); }, 300);
+  };
+  tryLenis(20);
+  function tick(now) {
+    var dt = Math.min((now - last) / 1000, 0.05); last = now;
+    speed += (target - speed) * 0.06;
+    x -= dt * (100 / 36) * speed;
+    if (x <= -50) x += 50;
+    track.style.transform = 'translate3d(' + x.toFixed(3) + '%,0,0)';
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+/* ---------- DOT-NAV + GHOST PARALLAX + TO-TOP + OROLOGIO FOOTER ---------- */
+(function initExtras() {
+  var ids = ['top', 'lavori', 'indice', 'metodo', 'offerta', 'contatti'];
+  var dots = Array.prototype.slice.call(document.querySelectorAll('#dotsNav a'));
+  var secs = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  var ghosts = Array.prototype.slice.call(document.querySelectorAll('.ghost'));
+  var gTicking = false;
+
+  function onScrollFrame() {
+    var mid = window.innerHeight * 0.4;
+    var current = ids[0];
+    secs.forEach(function (s, i) { if (s.getBoundingClientRect().top <= mid) current = ids[i]; });
+    dots.forEach(function (d) { d.classList.toggle('is-active', d.getAttribute('data-sec') === current); });
+    var vh = window.innerHeight;
+    ghosts.forEach(function (g) {
+      var r = g.parentElement.getBoundingClientRect();
+      var p = (r.top + r.height / 2 - vh / 2) / vh;
+      g.style.transform = 'translateY(' + (p * -70).toFixed(1) + 'px)';
+    });
+    gTicking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!gTicking) { gTicking = true; requestAnimationFrame(onScrollFrame); }
+  }, { passive: true });
+  onScrollFrame();
+
+  var toTop = document.getElementById('toTop');
+  if (toTop) toTop.addEventListener('click', function () {
+    if (window.lenis) window.lenis.scrollTo(0, { duration: 1.6 });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  function tickFoot() {
+    var fc = document.getElementById('footClock');
+    var fs = document.getElementById('footState');
+    try {
+      var now = new Date();
+      var s = new Intl.DateTimeFormat('it-IT', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Europe/Rome' }).format(now);
+      if (fc) fc.textContent = s;
+      if (fs) {
+        var h = parseInt(new Intl.DateTimeFormat('it-IT', { hour: '2-digit', hour12: false, timeZone: 'Europe/Rome' }).format(now), 10);
+        fs.textContent = (h >= 9 && h < 19) ? 'Di solito rispondo entro l\'ora' : 'Lascia un messaggio: rispondo in mattinata';
+      }
+    } catch (e) {}
+  }
+  tickFoot(); setInterval(tickFoot, 1000);
+})();
 
 /* ---------- VIVO: cursor, magneti, parallax mouse, HUD, skew, tilt ---------- */
 (function initVivo() {

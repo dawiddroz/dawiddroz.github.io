@@ -8,6 +8,17 @@
 <meta property="og:title" content="Dawid Drozdowski — Produzione siti web white-label">
 <meta property="og:description" content="Design editoriale, motion curato, consegna 48/72 ore. 33 siti pubblicati.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://dawiddroz.github.io/">
+<meta property="og:image" content="https://dawiddroz.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dawid Drozdowski — Produzione siti web white-label">
+<meta name="twitter:description" content="Design editoriale, motion curato, consegna 48/72 ore. 33 siti pubblicati.">
+<meta name="twitter:image" content="https://dawiddroz.github.io/og.png">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<script>document.documentElement.classList.add('js');</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0c0e'/%3E%3Crect x='6' y='6' width='20' height='20' fill='none' stroke='%23e8a33d' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="css/variables.css">
@@ -15,9 +26,19 @@
 <link rel="stylesheet" href="css/components.css">
 <noscript><style>
 .reveal, .hero__badge, .hero__sub, .hero__cta, .hero__meta, .hero__scroll, .hero__title .word span { opacity: 1 !important; transform: none !important; animation: none !important; }
+.loader, .cursor-dot, .cursor-ring { display: none !important; }
+html.js .hero__inner { opacity: 1 !important; }
 </style></noscript>
 </head>
 <body>
+<a class="skip-link" href="#lavori">Vai ai lavori</a>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <p class="loader__name">DAWID DROZDOWSKI — PORTFOLIO</p>
+    <p class="loader__count" id="loaderCount">000</p>
+  </div>
+  <div class="loader__bar"><i id="loaderBar"></i></div>
+</div>
 <div class="progress-bar"></div>
 <div class="tech-grid" aria-hidden="true"></div>
 <div class="cursor-dot" aria-hidden="true"></div>
@@ -33,6 +54,15 @@
     <a href="#contatti">Contatti</a>
   </div>
   <div class="nav__status"><span class="pulse"></span><span>DISPONIBILE · <span id="navClock">--:--:--</span></span></div>
+</nav>
+
+<nav class="dots" id="dotsNav" aria-label="Navigazione sezioni">
+  <a href="#top" data-sec="top"><span class="dots__label">Start</span></a>
+  <a href="#lavori" data-sec="lavori"><span class="dots__label">Lavori</span></a>
+  <a href="#indice" data-sec="indice"><span class="dots__label">Indice</span></a>
+  <a href="#metodo" data-sec="metodo"><span class="dots__label">Metodo</span></a>
+  <a href="#offerta" data-sec="offerta"><span class="dots__label">Offerta</span></a>
+  <a href="#contatti" data-sec="contatti"><span class="dots__label">Contatti</span></a>
 </nav>
 
 <header class="hero" id="top">
@@ -104,7 +134,7 @@
         <div class="card__body">
           <h3 class="card__name">Trattoria <em>Dei Cacciatori</em></h3>
           <p class="card__desc">Layout editoriale split, tipografia serif con accenti corsivi, 4.3★ con 834 recensioni in vista. Il pezzo forte.</p>
-          <div class="card__foot"><span>Velletri · Astro</span><a class="go" href="https://dawiddroz.github.io/trattoria-dei-cacciatori-velletri/" target="_blank" rel="noopener">Apri</a></div>
+          <div class="card__foot"><span>Velletri · Astro + GSAP</span><a class="go" href="https://dawiddroz.github.io/trattoria-dei-cacciatori-velletri/" target="_blank" rel="noopener">Apri</a></div>
         </div>
       </figure>
 
@@ -124,7 +154,7 @@
         <div class="card__body">
           <h3 class="card__name">Il <em>Momento</em></h3>
           <p class="card__desc">Lo stack motion più ricco del catalogo: GSAP + ScrollTrigger + Lenis, hero food a tutta pagina, prenotazione diretta.</p>
-          <div class="card__foot"><span>Velletri · Astro</span><a class="go" href="https://dawiddroz.github.io/il-momento-velletri/" target="_blank" rel="noopener">Apri</a></div>
+          <div class="card__foot"><span>Velletri · Astro + GSAP</span><a class="go" href="https://dawiddroz.github.io/il-momento-velletri/" target="_blank" rel="noopener">Apri</a></div>
         </div>
       </figure>
 
@@ -145,7 +175,7 @@
         <div class="card__body">
           <h3 class="card__name">Studio Notarile <em>Squillaci</em></h3>
           <p class="card__desc">Istituzionale ma non freddo: carta, blu notte, oro. La serietà che uno studio notarile deve trasmettere.</p>
-          <div class="card__foot"><span>Frascati · Vanilla</span><a class="go" href="https://dawiddroz.github.io/studio-notarile-squillaci-frascati/" target="_blank" rel="noopener">Apri</a></div>
+          <div class="card__foot"><span>Frascati · GSAP + Lenis</span><a class="go" href="https://dawiddroz.github.io/studio-notarile-squillaci-frascati/" target="_blank" rel="noopener">Apri</a></div>
         </div>
       </figure>
 
@@ -164,7 +194,7 @@
         <div class="card__body">
           <h3 class="card__name">Notaio <em>Minniti</em></h3>
           <p class="card__desc">Architetture in controluce, serif d'oro, struttura chiara per atti e servizi. Il classico che non passa di moda.</p>
-          <div class="card__foot"><span>Genzano · Vanilla</span><a class="go" href="https://dawiddroz.github.io/notaio-minniti-giuseppe-genzano/" target="_blank" rel="noopener">Apri</a></div>
+          <div class="card__foot"><span>Genzano · GSAP + Lenis</span><a class="go" href="https://dawiddroz.github.io/notaio-minniti-giuseppe-genzano/" target="_blank" rel="noopener">Apri</a></div>
         </div>
       </figure>
 
@@ -186,7 +216,7 @@
         <div class="card__body">
           <h3 class="card__name">FB Opere <em>Speciali</em></h3>
           <p class="card__desc">Dark industrial con HUD tecnico e gallery scroll-linked: geotecnica raccontata come ingegneria, non come vetroresina.</p>
-          <div class="card__foot"><span>Velletri · Motion+Lenis</span><a class="go" href="https://dawiddroz.github.io/fb-opere-speciali/" target="_blank" rel="noopener">Apri</a></div>
+          <div class="card__foot"><span>Velletri · Motion + Lenis</span><a class="go" href="https://dawiddroz.github.io/fb-opere-speciali/" target="_blank" rel="noopener">Apri</a></div>
         </div>
       </figure>
 
@@ -208,7 +238,7 @@
         <div class="card__body">
           <h3 class="card__name">No More <em>Tears</em></h3>
           <p class="card__desc">Tattoo &amp; barber: nero, rosso, carattere. Il sito di un'attività che vive di identità deve avere identità.</p>
-          <div class="card__foot"><span>Genzano · Vanilla</span><a class="go" href="https://dawiddroz.github.io/no-more-tears-genzano/" target="_blank" rel="noopener">Apri</a></div>
+          <div class="card__foot"><span>Genzano · GSAP + Lenis</span><a class="go" href="https://dawiddroz.github.io/no-more-tears-genzano/" target="_blank" rel="noopener">Apri</a></div>
         </div>
       </figure>
 
@@ -222,6 +252,7 @@
 </section>
 
 <section class="section" id="indice">
+  <span class="ghost" aria-hidden="true">02</span>
   <div class="section__head reveal">
     <h2 class="section__title">Indice <em>completo</em></h2>
     <p class="section__note">33 siti pubblicati · github.com/dawiddroz</p>
@@ -284,6 +315,7 @@
 </section>
 
 <section class="section" id="metodo">
+  <span class="ghost" aria-hidden="true">03</span>
   <div class="section__head reveal">
     <h2 class="section__title">Come <em>lavoro</em></h2>
     <p class="section__note">Brief → anteprima live → consegna</p>
@@ -308,6 +340,7 @@
 </section>
 
 <section class="section offer" id="offerta">
+  <span class="ghost" aria-hidden="true">04</span>
   <div class="offer__grid">
     <div class="reveal">
       <h2 class="section__title">Il <em>listino</em></h2>
@@ -335,7 +368,12 @@
       <p class="k">Telefono · WhatsApp</p>
       <p class="v">+39 380 193 1587<small>Per i progetti in corsa, direttamente</small></p>
     </a>
+    <div class="contact__card reveal">
+      <p class="k">Ora locale · Roma</p>
+      <p class="v"><span id="footClock">--:--:--</span><small id="footState">Rispondo in giornata</small></p>
+    </div>
   </div>
+  <button class="to-top" id="toTop" aria-label="Torna su"><span>Torna su</span> ↑</button>
 </section>
 
 <footer class="footer">
