@@ -98,9 +98,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 @keyframes scanMove { from { top: 12%; } to { top: 88%; } }
 
+/* reduced-motion: manteniamo le animazioni essenziali (scelta esplicita dell'utente);
+   spegniamo solo i decor loop infiniti che non portano informazione */
 @media (prefers-reduced-motion: reduce) {
-  .scanline, .progress-bar { animation: none; display: none; }
-  .hero__badge, .hero__sub, .hero__cta, .hero__meta, .hero__scroll,
-  .hero__title .word span { animation-duration: 0.01ms !important; animation-delay: 0s !important; }
-  .reveal { opacity: 1 !important; transform: none !important; }
+  .scanline, .hero__ring-orbit, .marquee__track { animation: none !important; }
 }

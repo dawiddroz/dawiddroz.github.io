@@ -165,3 +165,113 @@ setTimeout(function () {
 /* ---------- Anno footer ---------- */
 var y = document.getElementById('year');
 if (y) y.textContent = String(new Date().getFullYear());
+
+/* ---------- VIVO: cursor, magneti, parallax mouse, HUD, skew, tilt ---------- */
+(function initVivo() {
+  var fine = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+  var dot = document.querySelector('.cursor-dot');
+  var ring = document.querySelector('.cursor-ring');
+  var hero = document.querySelector('.hero');
+  var glow = document.querySelector('.hero__glow');
+  var ringSvg = document.querySelector('.hero__ring');
+  var title = document.querySelector('.hero__title');
+  var badge = document.querySelector('.hero__badge');
+  var hudX = document.getElementById('hudX');
+  var hudY = document.getElementById('hudY');
+  var mx = 0, my = 0, rx = 0, ry = 0, gx = 0, hx = 0, hy = 0;
+
+  /* cursore custom */
+  if (fine && dot && ring) {
+    document.addEventListener('mousemove', function (e) {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = 'translate(' + (mx - 3) + 'px,' + (my - 3) + 'px)';
+      var t = e.target;
+      var link = t && t.closest && t.closest('a, button, .chip, .cat__row');
+      ring.classList.toggle('is-link', !!link);
+    }, { passive: true });
+    document.addEventListener('mouseleave', function () {
+      dot.style.transform = 'translate(-100px,-100px)';
+      ring.style.transform = 'translate(-100px,-100px)';
+    });
+  }
+
+  /* bottoni magnetici */
+  if (fine) {
+    document.querySelectorAll('.btn, .work__btn').forEach(function (el) {
+      el.addEventListener('mousemove', function (e) {
+        var r = el.getBoundingClientRect();
+        var dx = e.clientX - (r.left + r.width / 2);
+        var dy = e.clientY - (r.top + r.height / 2);
+        el.style.transform = 'translate(' + dx * 0.22 + 'px,' + dy * 0.28 + 'px)';
+      });
+      el.addEventListener('mouseleave', function () { el.style.transform = ''; });
+    });
+  }
+
+  /* rAF unico: anello insegue, glow segue, hero parallax, HUD */
+  function loop() {
+    if (fine) {
+      rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
+      if (ring) ring.style.transform = 'translate(' + (rx - 17) + 'px,' + (ry - 17) + 'px)';
+      if (hero) {
+        var r = hero.getBoundingClientRect();
+        if (r.bottom > 0) {
+          var nx = (mx / window.innerWidth - 0.5);
+          var ny = (my / window.innerHeight - 0.5);
+          gx += (nx - gx) * 0.05; hy += 0; hx += (nx - hx) * 0.05; hy += (ny - hy) * 0.05;
+          if (glow) glow.style.transform = 'translate(calc(-50% + ' + gx * 90 + 'px), calc(-50% + ' + hy * 60 + 'px))';
+          if (ringSvg) ringSvg.style.transform = 'translate(' + hx * 26 + 'px,' + hy * 20 + 'px)';
+          if (title) title.style.transform = 'translate(' + hx * -10 + 'px,' + hy * -6 + 'px)';
+          if (badge) badge.style.transform = 'translate(' + hx * 14 + 'px,' + hy * 10 + 'px)';
+          if (hudX) hudX.textContent = (mx / window.innerWidth).toFixed(3);
+          if (hudY) hudY.textContent = (1 - my / window.innerHeight).toFixed(3);
+        }
+      }
+    }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  /* skew da velocità scroll (via Lenis) + ritorno a riposo */
+  {
+    var applySkew = function (v) {
+      document.querySelectorAll('.section__title, .contact__big').forEach(function (el) {
+        el.style.transform = 'skewY(' + v.toFixed(2) + 'deg)';
+      });
+    };
+    var onScrollVel = function (vel) {
+      var target = Math.max(-2.2, Math.min(2.2, vel * 0.05));
+      applySkew(target);
+      clearTimeout(window.__skewT);
+      window.__skewT = setTimeout(function () { applySkew(0); }, 120);
+    };
+    var tryLenis = function (n) {
+      if (window.lenis && window.lenis.on) { window.lenis.on('scroll', function (e) { onScrollVel(e.velocity || 0); }); }
+      else if (n > 0) setTimeout(function () { tryLenis(n - 1); }, 300);
+    };
+    tryLenis(20);
+  }
+
+  /* tilt 3D sui poster della gallery */
+  if (fine) {
+    document.querySelectorAll('.card__poster').forEach(function (el) {
+      el.addEventListener('mousemove', function (e) {
+        var r = el.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        el.style.transform = 'perspective(700px) rotateY(' + (px * 7).toFixed(2) + 'deg) rotateX(' + (-py * 7).toFixed(2) + 'deg) scale(1.02)';
+      });
+      el.addEventListener('mouseleave', function () { el.style.transform = ''; });
+    });
+  }
+
+  /* orologio live (Europa/Roma) in nav e HUD */
+  function tickClock() {
+    try {
+      var s = new Intl.DateTimeFormat('it-IT', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Europe/Rome' }).format(new Date());
+      var nc = document.getElementById('navClock'); if (nc) nc.textContent = s;
+      var hc = document.getElementById('hudClock'); if (hc) hc.textContent = s;
+    } catch (err) {}
+  }
+  tickClock(); setInterval(tickClock, 1000);
+})();

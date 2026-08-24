@@ -259,6 +259,60 @@
 .btn--solid:hover { border-color: var(--ink); color: #0a0c0e; }
 .btn:active { transform: scale(0.97); }
 
+/* ============ CURSOR CUSTOM (solo pointer fine) ============ */
+.cursor-dot, .cursor-ring { display: none; }
+@media (pointer: fine) {
+  .cursor-dot {
+    display: block; position: fixed; z-index: 9999; top: 0; left: 0;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--amber);
+    pointer-events: none; transform: translate(-100px, -100px);
+  }
+  .cursor-ring {
+    display: block; position: fixed; z-index: 9998; top: 0; left: 0;
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 1px solid rgba(232, 163, 61, 0.55);
+    pointer-events: none; transform: translate(-100px, -100px);
+    transition: width 0.25s var(--ease), height 0.25s var(--ease), border-color 0.25s, background 0.25s;
+  }
+  .cursor-ring.is-link {
+    width: 52px; height: 52px;
+    border-color: rgba(232, 163, 61, 0.9);
+    background: rgba(232, 163, 61, 0.08);
+  }
+  .cursor-ring.is-drag { width: 64px; height: 64px; border-color: var(--ink); }
+}
+
+/* ============ HERO VIVO ============ */
+.hero__glow {
+  position: absolute; z-index: 0; width: 560px; height: 560px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 163, 61, 0.13), transparent 62%);
+  filter: blur(30px); pointer-events: none;
+  top: 50%; left: 62%; transform: translate(-50%, -50%);
+  will-change: transform;
+}
+.hero__ring {
+  position: absolute; z-index: 1; width: min(300px, 30vw); height: auto;
+  right: clamp(30px, 9vw, 130px); top: 50%;
+  margin-top: calc(min(300px, 30vw) / -2);
+  opacity: 0.9; pointer-events: none;
+  will-change: transform;
+}
+.hero__ring-orbit { transform-origin: 110px 110px; animation: orbitSpin 14s linear infinite; }
+@keyframes orbitSpin { to { transform: rotate(360deg); } }
+.hud-readout {
+  position: absolute; z-index: 2; bottom: 34px; right: var(--pad);
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em;
+  color: var(--faint); font-variant-numeric: tabular-nums;
+}
+@media (max-width: 900px) { .hero__ring { display: none; } }
+@media (max-width: 767px) { .hud-readout { display: none; } }
+
+/* marquee: fade ai bordi */
+.marquee {
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
 /* ============ MOBILE ============ */
 @media (max-width: 767px) {
   :root { --header-h: 64px; }

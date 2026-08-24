@@ -20,6 +20,8 @@
 <body>
 <div class="progress-bar"></div>
 <div class="tech-grid" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
 
 <nav class="nav">
   <a class="nav__brand" href="#top"><span class="dot"></span><span>Dawid&nbsp;<b>Drozdowski</b></span></a>
@@ -30,12 +32,21 @@
     <a href="#offerta">Offerta</a>
     <a href="#contatti">Contatti</a>
   </div>
-  <div class="nav__status"><span class="pulse"></span><span>DISPONIBILE · SET 2026</span></div>
+  <div class="nav__status"><span class="pulse"></span><span>DISPONIBILE · <span id="navClock">--:--:--</span></span></div>
 </nav>
 
 <header class="hero" id="top">
   <div class="hero__frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   <div class="scanline" aria-hidden="true"></div>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <svg class="hero__ring" viewBox="0 0 220 220" aria-hidden="true">
+    <circle cx="110" cy="110" r="104" fill="none" stroke="rgba(236,233,226,0.13)" stroke-width="1" stroke-dasharray="3 9"/>
+    <g class="hero__ring-orbit">
+      <circle cx="110" cy="6" r="3.5" fill="#e8a33d"/>
+    </g>
+    <circle cx="110" cy="110" r="64" fill="none" stroke="rgba(232,163,61,0.18)" stroke-width="1"/>
+  </svg>
+  <p class="hud-readout" aria-hidden="true">X <span id="hudX">0.000</span> · Y <span id="hudY">0.000</span> · <span id="hudClock">--:--:--</span> ROMA</p>
   <div class="hero__inner">
     <p class="hero__badge"><span class="dot"></span> Produzione white-label per agenzie · Roma sud &amp; Castelli Romani</p>
     <h1 class="hero__title">
