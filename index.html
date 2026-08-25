@@ -31,10 +31,17 @@ html.js .hero__inner { opacity: 1 !important; }
 </style></noscript>
 </head>
 <body>
-<a class="skip-link" href="#lavori">Vai ai lavori</a>
+<a class="skip-link" href="#lavori" data-i18n="skip">Vai ai lavori</a>
 <div class="loader" id="loader" aria-hidden="true">
-  <div class="loader__inner">
-    <p class="loader__name">DAWID DROZDOWSKI — PORTFOLIO</p>
+  <div class="loader__panel loader__panel--top"></div>
+  <div class="loader__panel loader__panel--bot"></div>
+  <div class="loader__stage">
+    <p class="loader__kicker" data-i18n="loader_k">DAWID DROZDOWSKI — PORTFOLIO</p>
+    <div class="loader__lines">
+      <p class="loader__line" data-i18n-html="loader1" style="--d:0.15s"><i>Costruisco siti.</i></p>
+      <p class="loader__line" data-i18n-html="loader2" style="--d:0.8s"><i>Voi vendete.</i></p>
+      <p class="loader__line" data-i18n-html="loader3" style="--d:1.45s"><i>Io <em>produco</em>.</i></p>
+    </div>
     <p class="loader__count" id="loaderCount">000</p>
   </div>
   <div class="loader__bar"><i id="loaderBar"></i></div>
@@ -47,58 +54,59 @@ html.js .hero__inner { opacity: 1 !important; }
 <nav class="nav">
   <a class="nav__brand" href="#top"><span class="dot"></span><span>Dawid&nbsp;<b>Drozdowski</b></span></a>
   <div class="nav__links">
-    <a href="#lavori">Lavori</a>
-    <a href="#indice">Indice</a>
-    <a href="#metodo">Metodo</a>
-    <a href="#offerta">Offerta</a>
-    <a href="#contatti">Contatti</a>
+    <a href="#lavori" data-i18n="nav_work">Lavori</a>
+    <a href="#indice" data-i18n="nav_index">Indice</a>
+    <a href="#metodo" data-i18n="nav_method">Metodo</a>
+    <a href="#offerta" data-i18n="nav_pricing">Offerta</a>
+    <a href="#contatti" data-i18n="nav_contact">Contatti</a>
   </div>
-  <div class="nav__status"><span class="pulse"></span><span>DISPONIBILE · <span id="navClock">--:--:--</span></span></div>
+  <div class="lang" role="group" aria-label="Lingua / Language">
+    <button class="lang__btn is-on" data-lang="it" type="button">IT</button>
+    <span class="lang__sep">/</span>
+    <button class="lang__btn" data-lang="en" type="button">EN</button>
+  </div>
+  <div class="nav__status"><span class="pulse"></span><span><span data-i18n="nav_status">DISPONIBILE</span> · <span id="navClock">--:--:--</span></span></div>
 </nav>
 
 <nav class="dots" id="dotsNav" aria-label="Navigazione sezioni">
-  <a href="#top" data-sec="top"><span class="dots__label">Start</span></a>
-  <a href="#lavori" data-sec="lavori"><span class="dots__label">Lavori</span></a>
-  <a href="#indice" data-sec="indice"><span class="dots__label">Indice</span></a>
-  <a href="#metodo" data-sec="metodo"><span class="dots__label">Metodo</span></a>
-  <a href="#offerta" data-sec="offerta"><span class="dots__label">Offerta</span></a>
-  <a href="#contatti" data-sec="contatti"><span class="dots__label">Contatti</span></a>
+  <a href="#top" data-sec="top"><span class="dots__label" data-i18n="dot_start">Start</span></a>
+  <a href="#lavori" data-sec="lavori"><span class="dots__label" data-i18n="dot_work">Lavori</span></a>
+  <a href="#indice" data-sec="indice"><span class="dots__label" data-i18n="dot_index">Indice</span></a>
+  <a href="#metodo" data-sec="metodo"><span class="dots__label" data-i18n="dot_method">Metodo</span></a>
+  <a href="#offerta" data-sec="offerta"><span class="dots__label" data-i18n="dot_pricing">Offerta</span></a>
+  <a href="#contatti" data-sec="contatti"><span class="dots__label" data-i18n="dot_contact">Contatti</span></a>
 </nav>
 
 <header class="hero" id="top">
   <div class="hero__frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   <div class="scanline" aria-hidden="true"></div>
   <div class="hero__glow" aria-hidden="true"></div>
-  <svg class="hero__ring" viewBox="0 0 220 220" aria-hidden="true">
-    <circle cx="110" cy="110" r="104" fill="none" stroke="rgba(236,233,226,0.13)" stroke-width="1" stroke-dasharray="3 9"/>
-    <g class="hero__ring-orbit">
-      <circle cx="110" cy="6" r="3.5" fill="#e8a33d"/>
-    </g>
-    <circle cx="110" cy="110" r="64" fill="none" stroke="rgba(232,163,61,0.18)" stroke-width="1"/>
-  </svg>
+  <div class="hero__art" aria-hidden="true">
+    <img src="assets/topo.webp" alt="" class="hero__art-img" loading="eager">
+  </div>
   <p class="hud-readout" aria-hidden="true">X <span id="hudX">0.000</span> · Y <span id="hudY">0.000</span> · <span id="hudClock">--:--:--</span> ROMA</p>
   <div class="hero__inner">
-    <p class="hero__badge"><span class="dot"></span> Produzione white-label per agenzie · Roma sud &amp; Castelli Romani</p>
+    <p class="hero__badge"><span class="dot"></span> <span data-i18n="hero_badge">Produzione white-label per agenzie · Roma sud &amp; Castelli Romani</span></p>
     <h1 class="hero__title">
-      <span class="word"><span>Siti</span></span>
-      <span class="word"><span>che</span></span>
-      <span class="word"><span>sembrano</span></span><br>
-      <span class="word"><span>costare</span></span>
-      <span class="word"><span><em>il&nbsp;doppio.</em></span></span>
+      <span class="word"><span data-i18n="hero_t1">Siti</span></span>
+      <span class="word"><span data-i18n="hero_t2">che</span></span>
+      <span class="word"><span data-i18n="hero_t3">sembrano</span></span><br>
+      <span class="word"><span data-i18n="hero_t4">costare</span></span>
+      <span class="word"><span data-i18n-html="hero_t5"><em>il&nbsp;doppio.</em></span></span>
     </h1>
-    <p class="hero__sub">Laboratorio di produzione siti web alle spalle delle agenzie: <strong>design editoriale, motion curato, white-label totale</strong>. Voi vendete al vostro prezzo, io produco in 48/72 ore. Nessun riferimento al produttore nei deliverable.</p>
+    <p class="hero__sub" data-i18n-html="hero_sub">Laboratorio di produzione siti web alle spalle delle agenzie: <strong>design editoriale, motion curato, white-label totale</strong>. Voi vendete al vostro prezzo, io produco in 48/72 ore. Nessun riferimento al produttore nei deliverable.</p>
     <div class="hero__cta">
-      <a class="btn btn--solid" href="#lavori"><span>Vedi i lavori</span></a>
-      <a class="btn" href="#offerta"><span>Listino wholesale</span></a>
+      <a class="btn btn--solid" href="#lavori"><span data-i18n="cta_work">Vedi i lavori</span></a>
+      <a class="btn" href="#offerta"><span data-i18n="cta_pricing">Listino wholesale</span></a>
     </div>
     <div class="hero__meta">
-      <div class="m"><div class="m-v"><span class="counter" data-count="33">33</span></div><div class="m-k">Siti pubblicati</div></div>
-      <div class="m"><div class="m-v"><em>48/72</em>h</div><div class="m-k">Consegna dai materiali</div></div>
-      <div class="m"><div class="m-v"><em>0</em> riferimenti</div><div class="m-k">White-label garantito</div></div>
-      <div class="m"><div class="m-v"><em>2</em> round</div><div class="m-k">Revisioni incluse</div></div>
+      <div class="m"><div class="m-v"><span class="counter" data-count="33">33</span></div><div class="m-k" data-i18n="meta_k1">Siti pubblicati</div></div>
+      <div class="m"><div class="m-v"><em>48/72</em>h</div><div class="m-k" data-i18n="meta_k2">Consegna dai materiali</div></div>
+      <div class="m"><div class="m-v"><em>0</em> riferimenti</div><div class="m-k" data-i18n="meta_k3">White-label garantito</div></div>
+      <div class="m"><div class="m-v"><em>2</em> round</div><div class="m-k" data-i18n="meta_k4">Revisioni incluse</div></div>
     </div>
   </div>
-  <p class="hero__scroll">Scroll</p>
+  <p class="hero__scroll" data-i18n="hero_scroll">Scroll</p>
 </header>
 
 <div class="marquee" aria-hidden="true">
@@ -110,15 +118,15 @@ html.js .hero__inner { opacity: 1 !important; }
 
 <section class="section work" id="lavori">
   <div class="section__head reveal">
-    <h2 class="section__title">Lavori <em>selezionati</em></h2>
-    <p class="section__note">Trascina o usa le frecce — 33 pubblicati, 6 in vetrina</p>
+    <h2 class="section__title" data-i18n-html="sec_work_t">Lavori <em>selezionati</em></h2>
+    <p class="section__note" data-i18n="sec_work_n">Trascina o usa le frecce — 33 pubblicati, 6 in vetrina</p>
   </div>
   <div class="work__viewport">
     <div class="work__track" id="workTrack">
 
       <figure class="card reveal">
         <div class="card__poster">
-          <span class="card__tag">Ristorazione</span>
+          <span class="card__tag" data-i18n="tag_rest">Ristorazione</span>
           <svg viewBox="0 0 480 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Anteprima grafica Trattoria Dei Cacciatori">
             <rect width="480" height="250" fill="#F2EDE4"/>
             <rect x="0" y="0" width="205" height="250" fill="#F2EDE4"/>
@@ -132,15 +140,15 @@ html.js .hero__inner { opacity: 1 !important; }
           </svg>
         </div>
         <div class="card__body">
-          <h3 class="card__name">Trattoria <em>Dei Cacciatori</em></h3>
-          <p class="card__desc">Layout editoriale split, tipografia serif con accenti corsivi, 4.3★ con 834 recensioni in vista. Il pezzo forte.</p>
-          <div class="card__foot"><span>Velletri · Astro + GSAP</span><a class="go" href="https://dawiddroz.github.io/trattoria-dei-cacciatori-velletri/" target="_blank" rel="noopener">Apri</a></div>
+          <h3 class="card__name" data-i18n-html="card1_name">Trattoria <em>Dei Cacciatori</em></h3>
+          <p class="card__desc" data-i18n="card1_desc">Layout editoriale split, tipografia serif con accenti corsivi, 4.3★ con 834 recensioni in vista. Il pezzo forte.</p>
+          <div class="card__foot"><span>Velletri · Astro + GSAP</span><a class="go" href="https://dawiddroz.github.io/trattoria-dei-cacciatori-velletri/" target="_blank" rel="noopener" data-i18n="card_open">Apri</a></div>
         </div>
       </figure>
 
       <figure class="card reveal">
         <div class="card__poster">
-          <span class="card__tag">Ristorazione</span>
+          <span class="card__tag" data-i18n="tag_rest">Ristorazione</span>
           <svg viewBox="0 0 480 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Anteprima grafica Il Momento">
             <rect width="480" height="250" fill="#12291C"/>
             <circle cx="240" cy="125" r="86" fill="none" stroke="#D9A441" stroke-width="1" opacity="0.5"/>
@@ -152,15 +160,15 @@ html.js .hero__inner { opacity: 1 !important; }
           </svg>
         </div>
         <div class="card__body">
-          <h3 class="card__name">Il <em>Momento</em></h3>
-          <p class="card__desc">Lo stack motion più ricco del catalogo: GSAP + ScrollTrigger + Lenis, hero food a tutta pagina, prenotazione diretta.</p>
-          <div class="card__foot"><span>Velletri · Astro + GSAP</span><a class="go" href="https://dawiddroz.github.io/il-momento-velletri/" target="_blank" rel="noopener">Apri</a></div>
+          <h3 class="card__name" data-i18n-html="card2_name">Il <em>Momento</em></h3>
+          <p class="card__desc" data-i18n="card2_desc">Lo stack motion più ricco del catalogo: GSAP + ScrollTrigger + Lenis, hero food a tutta pagina, prenotazione diretta.</p>
+          <div class="card__foot"><span>Velletri · Astro + GSAP</span><a class="go" href="https://dawiddroz.github.io/il-momento-velletri/" target="_blank" rel="noopener" data-i18n="card_open">Apri</a></div>
         </div>
       </figure>
 
       <figure class="card reveal">
         <div class="card__poster">
-          <span class="card__tag">Professionisti</span>
+          <span class="card__tag" data-i18n="tag_prof">Professionisti</span>
           <svg viewBox="0 0 480 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Anteprima grafica Studio Notarile Squillaci">
             <rect width="480" height="250" fill="#EFE9DC"/>
             <rect x="0" y="0" width="480" height="64" fill="#1E2A4A"/>
@@ -173,15 +181,15 @@ html.js .hero__inner { opacity: 1 !important; }
           </svg>
         </div>
         <div class="card__body">
-          <h3 class="card__name">Studio Notarile <em>Squillaci</em></h3>
-          <p class="card__desc">Istituzionale ma non freddo: carta, blu notte, oro. La serietà che uno studio notarile deve trasmettere.</p>
-          <div class="card__foot"><span>Frascati · GSAP + Lenis</span><a class="go" href="https://dawiddroz.github.io/studio-notarile-squillaci-frascati/" target="_blank" rel="noopener">Apri</a></div>
+          <h3 class="card__name" data-i18n-html="card3_name">Studio Notarile <em>Squillaci</em></h3>
+          <p class="card__desc" data-i18n="card3_desc">Istituzionale ma non freddo: carta, blu notte, oro. La serietà che uno studio notarile deve trasmettere.</p>
+          <div class="card__foot"><span>Frascati · GSAP + Lenis</span><a class="go" href="https://dawiddroz.github.io/studio-notarile-squillaci-frascati/" target="_blank" rel="noopener" data-i18n="card_open">Apri</a></div>
         </div>
       </figure>
 
       <figure class="card reveal">
         <div class="card__poster">
-          <span class="card__tag">Professionisti</span>
+          <span class="card__tag" data-i18n="tag_prof">Professionisti</span>
           <svg viewBox="0 0 480 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Anteprima grafica Notaio Minniti">
             <rect width="480" height="250" fill="#101C33"/>
             <path d="M140 250 L140 130 A70 70 0 0 1 280 130 L280 250 Z" fill="#1A2B4D"/>
@@ -192,15 +200,15 @@ html.js .hero__inner { opacity: 1 !important; }
           </svg>
         </div>
         <div class="card__body">
-          <h3 class="card__name">Notaio <em>Minniti</em></h3>
-          <p class="card__desc">Architetture in controluce, serif d'oro, struttura chiara per atti e servizi. Il classico che non passa di moda.</p>
-          <div class="card__foot"><span>Genzano · GSAP + Lenis</span><a class="go" href="https://dawiddroz.github.io/notaio-minniti-giuseppe-genzano/" target="_blank" rel="noopener">Apri</a></div>
+          <h3 class="card__name" data-i18n-html="card4_name">Notaio <em>Minniti</em></h3>
+          <p class="card__desc" data-i18n="card4_desc">Architetture in controluce, serif d'oro, struttura chiara per atti e servizi. Il classico che non passa di moda.</p>
+          <div class="card__foot"><span>Genzano · GSAP + Lenis</span><a class="go" href="https://dawiddroz.github.io/notaio-minniti-giuseppe-genzano/" target="_blank" rel="noopener" data-i18n="card_open">Apri</a></div>
         </div>
       </figure>
 
       <figure class="card reveal">
         <div class="card__poster">
-          <span class="card__tag">Industria</span>
+          <span class="card__tag" data-i18n="tag_ind">Industria</span>
           <svg viewBox="0 0 480 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Anteprima grafica FB Opere Speciali">
             <rect width="480" height="250" fill="#0D0F11"/>
             <g stroke="#23282E" stroke-width="1">
@@ -214,15 +222,15 @@ html.js .hero__inner { opacity: 1 !important; }
           </svg>
         </div>
         <div class="card__body">
-          <h3 class="card__name">FB Opere <em>Speciali</em></h3>
-          <p class="card__desc">Dark industrial con HUD tecnico e gallery scroll-linked: geotecnica raccontata come ingegneria, non come vetroresina.</p>
-          <div class="card__foot"><span>Velletri · Motion + Lenis</span><a class="go" href="https://dawiddroz.github.io/fb-opere-speciali/" target="_blank" rel="noopener">Apri</a></div>
+          <h3 class="card__name" data-i18n-html="card5_name">FB Opere <em>Speciali</em></h3>
+          <p class="card__desc" data-i18n="card5_desc">Dark industrial con HUD tecnico e gallery scroll-linked: geotecnica raccontata come ingegneria, non come vetroresina.</p>
+          <div class="card__foot"><span>Velletri · Motion + Lenis</span><a class="go" href="https://dawiddroz.github.io/fb-opere-speciali/" target="_blank" rel="noopener" data-i18n="card_open">Apri</a></div>
         </div>
       </figure>
 
       <figure class="card reveal">
         <div class="card__poster">
-          <span class="card__tag">Local</span>
+          <span class="card__tag" data-i18n="tag_local">Local</span>
           <svg viewBox="0 0 480 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Anteprima grafica No More Tears">
             <rect width="480" height="250" fill="#0B0B0D"/>
             <g>
@@ -236,9 +244,9 @@ html.js .hero__inner { opacity: 1 !important; }
           </svg>
         </div>
         <div class="card__body">
-          <h3 class="card__name">No More <em>Tears</em></h3>
-          <p class="card__desc">Tattoo &amp; barber: nero, rosso, carattere. Il sito di un'attività che vive di identità deve avere identità.</p>
-          <div class="card__foot"><span>Genzano · GSAP + Lenis</span><a class="go" href="https://dawiddroz.github.io/no-more-tears-genzano/" target="_blank" rel="noopener">Apri</a></div>
+          <h3 class="card__name" data-i18n-html="card6_name">No More <em>Tears</em></h3>
+          <p class="card__desc" data-i18n="card6_desc">Tattoo &amp; barber: nero, rosso, carattere. Il sito di un'attività che vive di identità deve avere identità.</p>
+          <div class="card__foot"><span>Genzano · GSAP + Lenis</span><a class="go" href="https://dawiddroz.github.io/no-more-tears-genzano/" target="_blank" rel="noopener" data-i18n="card_open">Apri</a></div>
         </div>
       </figure>
 
@@ -254,12 +262,12 @@ html.js .hero__inner { opacity: 1 !important; }
 <section class="section" id="indice">
   <span class="ghost" aria-hidden="true">02</span>
   <div class="section__head reveal">
-    <h2 class="section__title">Indice <em>completo</em></h2>
-    <p class="section__note">33 siti pubblicati · github.com/dawiddroz</p>
+    <h2 class="section__title" data-i18n-html="sec_index_t">Indice <em>completo</em></h2>
+    <p class="section__note" data-i18n="sec_index_n">33 siti pubblicati · github.com/dawiddroz</p>
   </div>
   <div class="cats">
     <div class="cat reveal">
-      <div class="cat__row"><span class="cat__num">01</span><span class="cat__name">Ristorazione</span><span class="cat__meta">10 siti</span></div>
+      <div class="cat__row"><span class="cat__num">01</span><span class="cat__name" data-i18n="cat1">Ristorazione</span><span class="cat__meta">10 siti</span></div>
       <div class="cat__sites">
         <a class="chip" href="https://dawiddroz.github.io/trattoria-dei-cacciatori-velletri/" target="_blank" rel="noopener">Dei Cacciatori</a>
         <a class="chip" href="https://dawiddroz.github.io/il-momento-velletri/" target="_blank" rel="noopener">Il Momento</a>
@@ -274,7 +282,7 @@ html.js .hero__inner { opacity: 1 !important; }
       </div>
     </div>
     <div class="cat reveal">
-      <div class="cat__row"><span class="cat__num">02</span><span class="cat__name">Professionisti</span><span class="cat__meta">8 siti</span></div>
+      <div class="cat__row"><span class="cat__num">02</span><span class="cat__name" data-i18n="cat2">Professionisti</span><span class="cat__meta">8 siti</span></div>
       <div class="cat__sites">
         <a class="chip" href="https://dawiddroz.github.io/studio-notarile-squillaci-frascati/" target="_blank" rel="noopener">Notarile Squillaci</a>
         <a class="chip" href="https://dawiddroz.github.io/notaio-minniti-giuseppe-genzano/" target="_blank" rel="noopener">Notaio Minniti</a>
@@ -287,7 +295,7 @@ html.js .hero__inner { opacity: 1 !important; }
       </div>
     </div>
     <div class="cat reveal">
-      <div class="cat__row"><span class="cat__num">03</span><span class="cat__name">Commercio, arti e servizi</span><span class="cat__meta">9 siti</span></div>
+      <div class="cat__row"><span class="cat__num">03</span><span class="cat__name" data-i18n="cat3">Commercio, arti e servizi</span><span class="cat__meta">9 siti</span></div>
       <div class="cat__sites">
         <a class="chip" href="https://dawiddroz.github.io/fb-opere-speciali/" target="_blank" rel="noopener">FB Opere Speciali</a>
         <a class="chip" href="https://dawiddroz.github.io/veliterna-peperino-velletri/" target="_blank" rel="noopener">Veliterna Peperino</a>
@@ -301,7 +309,7 @@ html.js .hero__inner { opacity: 1 !important; }
       </div>
     </div>
     <div class="cat reveal">
-      <div class="cat__row"><span class="cat__num">04</span><span class="cat__name">Benessere e accoglienza</span><span class="cat__meta">6 siti</span></div>
+      <div class="cat__row"><span class="cat__num">04</span><span class="cat__name" data-i18n="cat4">Benessere e accoglienza</span><span class="cat__meta">6 siti</span></div>
       <div class="cat__sites">
         <a class="chip" href="https://dawiddroz.github.io/armonia-e-benessere-velletri/" target="_blank" rel="noopener">Armonia &amp; Benessere</a>
         <a class="chip" href="https://dawiddroz.github.io/il-sole-dentro-velletri/" target="_blank" rel="noopener">Il Sole Dentro</a>
@@ -317,24 +325,24 @@ html.js .hero__inner { opacity: 1 !important; }
 <section class="section" id="metodo">
   <span class="ghost" aria-hidden="true">03</span>
   <div class="section__head reveal">
-    <h2 class="section__title">Come <em>lavoro</em></h2>
-    <p class="section__note">Brief → anteprima live → consegna</p>
+    <h2 class="section__title" data-i18n-html="sec_method_t">Come <em>lavoro</em></h2>
+    <p class="section__note" data-i18n="sec_method_n">Brief → anteprima live → consegna</p>
   </div>
   <div class="method__grid">
     <div class="step reveal" data-n="01">
-      <p class="step__k">01 · Brief</p>
-      <h3 class="step__t">Scheda progetto, 10 minuti</h3>
-      <p class="step__d">Settore, sezioni, testi, logo, foto, riferimenti. Niente call infinite: una scheda compilata e si parte. I ritardi sui materiali sospendono il conteggio dei tempi, per trasparenza.</p>
+      <p class="step__k" data-i18n="step1_k">01 · Brief</p>
+      <h3 class="step__t" data-i18n="step1_t">Scheda progetto, 10 minuti</h3>
+      <p class="step__d" data-i18n="step1_d">Settore, sezioni, testi, logo, foto, riferimenti. Niente call infinite: una scheda compilata e si parte. I ritardi sui materiali sospendono il conteggio dei tempi, per trasparenza.</p>
     </div>
     <div class="step reveal" data-n="02">
-      <p class="step__k">02 · Anteprima live</p>
-      <h3 class="step__t">Link commentabile in 48h</h3>
-      <p class="step__d">L'agenzia vede il sito vero, su un link condivisibile col cliente finale, e lascia le correzioni direttamente sull'anteprima. Due round di revisioni inclusi.</p>
+      <p class="step__k" data-i18n="step2_k">02 · Anteprima live</p>
+      <h3 class="step__t" data-i18n="step2_t">Link commentabile in 48h</h3>
+      <p class="step__d" data-i18n="step2_d">L'agenzia vede il sito vero, su un link condivisibile col cliente finale, e lascia le correzioni direttamente sull'anteprima. Due round di revisioni inclusi.</p>
     </div>
     <div class="step reveal" data-n="03">
-      <p class="step__k">03 · Consegna</p>
-      <h3 class="step__t">Dominio, sorgenti, silenzio</h3>
-      <p class="step__d">Deploy sul dominio dell'agenzia, file sorgente consegnati, nessun credito, nessun watermark. Il sito è vostro e del vostro cliente. Punto.</p>
+      <p class="step__k" data-i18n="step3_k">03 · Consegna</p>
+      <h3 class="step__t" data-i18n="step3_t">Dominio, sorgenti, silenzio</h3>
+      <p class="step__d" data-i18n="step3_d">Deploy sul dominio dell'agenzia, file sorgente consegnati, nessun credito, nessun watermark. Il sito è vostro e del vostro cliente. Punto.</p>
     </div>
   </div>
 </section>
@@ -343,43 +351,43 @@ html.js .hero__inner { opacity: 1 !important; }
   <span class="ghost" aria-hidden="true">04</span>
   <div class="offer__grid">
     <div class="reveal">
-      <h2 class="section__title">Il <em>listino</em></h2>
-      <p class="offer__text" style="margin-top:26px">Prezzi di produzione wholesale, IVA esclusa: l'agenzia applica il proprio margine e resta l'unico interlocutore del cliente finale. Hosting e manutenzione gestiti da me con il cliente finale a 29€/mese, o rivenduti all'agenzia a 15€/mese per sito: il ricorrente resta vostro.</p>
-      <p class="offer__fine">Pagamenti: 50% alla conferma, 50% alla consegna · Contratto quadro e NDA su richiesta</p>
+      <h2 class="section__title" data-i18n-html="sec_offer_t">Il <em>listino</em></h2>
+      <p class="offer__text" style="margin-top:26px" data-i18n="offer_text">Prezzi di produzione wholesale, IVA esclusa: l'agenzia applica il proprio margine e resta l'unico interlocutore del cliente finale. Hosting e manutenzione gestiti da me con il cliente finale a 29€/mese, o rivenduti all'agenzia a 15€/mese per sito: il ricorrente resta vostro.</p>
+      <p class="offer__fine" data-i18n="offer_fine">Pagamenti: 50% alla conferma, 50% alla consegna · Contratto quadro e NDA su richiesta</p>
     </div>
     <div class="price-list reveal">
-      <div class="price"><div><div class="price__n">Landing page</div><div class="price__d">Consegna 48h</div></div><div class="price__v">250€</div></div>
-      <div class="price"><div><div class="price__n">Sito vetrina</div><div class="price__d">Consegna 72h</div></div><div class="price__v">400€</div></div>
-      <div class="price"><div><div class="price__n">Pagina extra</div><div class="price__d">Sul progetto in corso</div></div><div class="price__v">50€</div></div>
-      <div class="price"><div><div class="price__n">E-commerce base</div><div class="price__d">Consegna 5 giorni</div></div><div class="price__v">700€</div></div>
-      <div class="price"><div><div class="price__n">Revisioni extra</div><div class="price__d">Oltre i 2 round inclusi</div></div><div class="price__v">30€<small>/h</small></div></div>
+      <div class="price"><div><div class="price__n" data-i18n="p1_n">Landing page</div><div class="price__d" data-i18n="p1_d">Consegna 48h</div></div><div class="price__v">250€</div></div>
+      <div class="price"><div><div class="price__n" data-i18n="p2_n">Sito vetrina</div><div class="price__d" data-i18n="p2_d">Consegna 72h</div></div><div class="price__v">400€</div></div>
+      <div class="price"><div><div class="price__n" data-i18n="p3_n">Pagina extra</div><div class="price__d" data-i18n="p3_d">Sul progetto in corso</div></div><div class="price__v">50€</div></div>
+      <div class="price"><div><div class="price__n" data-i18n="p4_n">E-commerce base</div><div class="price__d" data-i18n="p4_d">Consegna 5 giorni</div></div><div class="price__v">700€</div></div>
+      <div class="price"><div><div class="price__n" data-i18n="p5_n">Revisioni extra</div><div class="price__d" data-i18n="p5_d">Oltre i 2 round inclusi</div></div><div class="price__v">30€<small>/h</small></div></div>
     </div>
   </div>
 </section>
 
 <section class="section contact" id="contatti">
-  <h2 class="contact__big reveal">Costruiamo il <em>prossimo</em> progetto.</h2>
+  <h2 class="contact__big reveal" data-i18n-html="contact_t">Costruiamo il <em>prossimo</em> progetto.</h2>
   <div class="contact__row">
     <a class="contact__card reveal" href="mailto:dawid.drozdowski@pec.it">
-      <p class="k">Email PEC</p>
-      <p class="v">dawid.drozdowski@pec.it<small>Risposta entro 24 ore lavorative</small></p>
+      <p class="k" data-i18n="c_email_k">Email PEC</p>
+      <p class="v">dawid.drozdowski@pec.it<small data-i18n="c_email_s">Risposta entro 24 ore lavorative</small></p>
     </a>
     <a class="contact__card reveal" href="tel:+393801931587">
-      <p class="k">Telefono · WhatsApp</p>
-      <p class="v">+39 380 193 1587<small>Per i progetti in corsa, direttamente</small></p>
+      <p class="k" data-i18n="c_tel_k">Telefono · WhatsApp</p>
+      <p class="v">+39 380 193 1587<small data-i18n="c_tel_s">Per i progetti in corsa, direttamente</small></p>
     </a>
     <div class="contact__card reveal">
-      <p class="k">Ora locale · Roma</p>
+      <p class="k" data-i18n="c_ora_k">Ora locale · Roma</p>
       <p class="v"><span id="footClock">--:--:--</span><small id="footState">Rispondo in giornata</small></p>
     </div>
   </div>
-  <button class="to-top" id="toTop" aria-label="Torna su"><span>Torna su</span> ↑</button>
+  <button class="to-top" id="toTop" aria-label="Torna su"><span data-i18n="to_top">Torna su</span> ↑</button>
 </section>
 
 <footer class="footer">
   <span>© <span id="year">2026</span> Dawid Drozdowski</span>
   <span><a href="https://github.com/dawiddroz" target="_blank" rel="noopener">github.com/dawiddroz</a></span>
-  <span>White-label · Roma sud &amp; Castelli Romani</span>
+  <span data-i18n="footer_wl">White-label · Roma sud &amp; Castelli Romani</span>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>

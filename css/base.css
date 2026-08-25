@@ -67,6 +67,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   opacity: 0; transform: translateY(22px);
   animation: riseIn 0.9s var(--ease) forwards;
 }
+/* con JS: l'intro dell'hero parte SOLO quando i sipari del loader si aprono */
+html.js .hero__badge, html.js .hero__sub, html.js .hero__cta,
+html.js .hero__meta, html.js .hero__scroll,
+html.js .hero__title .word span { animation-play-state: paused; }
+html.js.hero-ready .hero__badge, html.js.hero-ready .hero__sub,
+html.js.hero-ready .hero__cta, html.js.hero-ready .hero__meta,
+html.js.hero-ready .hero__scroll,
+html.js.hero-ready .hero__title .word span { animation-play-state: running; }
 .hero__badge { animation-delay: 0.55s; }
 .hero__sub { animation-delay: 0.72s; }
 .hero__cta { animation-delay: 0.86s; }
