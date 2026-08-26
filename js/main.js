@@ -199,44 +199,6 @@ setTimeout(function () {
 var y = document.getElementById('year');
 if (y) y.textContent = String(new Date().getFullYear());
 
-/* ---------- PRELOADER ---------- */
-(function initLoader() {
-  var loader = document.getElementById('loader');
-  if (!loader) { document.documentElement.classList.add('hero-ready'); return; }
-  var count = document.getElementById('loaderCount');
-  var bar = document.getElementById('loaderBar');
-  if (window.lenis && window.lenis.stop) { try { window.lenis.stop(); } catch (e) {} }
-  var t0 = performance.now();
-  var COUNT_MS = 1800;   /* corsa del contatore */
-  var MIN_MS = 2350;     /* le tre title-card devono atterrare */
-  var done = false;
-  function finish() {
-    if (done) return;
-    done = true;
-    if (count) count.innerHTML = '1<em>00</em>';
-    setTimeout(function () {
-      loader.classList.add('is-done');
-      document.documentElement.classList.add('hero-ready'); /* l'hero parte CON l'apertura dei sipari */
-      if (window.lenis && window.lenis.start) { try { window.lenis.start(); } catch (e) {} }
-      setTimeout(function () { loader.style.display = 'none'; }, 1050);
-    }, 260);
-  }
-  setTimeout(finish, 6500); /* hard timeout: mai bloccare l'hero */
-  function frame(now) {
-    var elapsed = now - t0;
-    /* il contatore corre sui suoi 1.8s ma non supera 96 finché le card non sono finite */
-    var p = Math.min(elapsed / COUNT_MS, 1);
-    var gate = elapsed < MIN_MS ? 0.96 : 1;
-    var eased = (1 - Math.pow(1 - p, 2)) * gate;
-    var n = Math.round(eased * 100);
-    if (count) count.textContent = (n < 10 ? '00' : n < 100 ? '0' : '') + n;
-    if (bar) bar.style.transform = 'scaleX(' + eased + ')';
-    if (elapsed >= Math.max(COUNT_MS, MIN_MS)) { finish(); return; }
-    requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-})();
-
 /* ---------- I18N ---------- */
 (function initI18n() {
   var T = {
@@ -409,6 +371,7 @@ if (y) y.textContent = String(new Date().getFullYear());
   var dots = Array.prototype.slice.call(document.querySelectorAll('#dotsNav a'));
   var secs = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
   var ghosts = Array.prototype.slice.call(document.querySelectorAll('.ghost'));
+  var artEl = document.querySelector('.hero__art');
   var gTicking = false;
 
   function onScrollFrame() {
@@ -422,6 +385,14 @@ if (y) y.textContent = String(new Date().getFullYear());
       var p = (r.top + r.height / 2 - vh / 2) / vh;
       g.style.transform = 'translateY(' + (p * -70).toFixed(1) + 'px)';
     });
+    /* l'arte topografica affonda con lo scroll: serve la narrazione, non sta ferma */
+    if (artEl) {
+      var ar = artEl.getBoundingClientRect();
+      if (ar.bottom > 0) {
+        var ap = Math.min(Math.max(-ar.top / Math.max(ar.height, 1), 0), 1);
+        artEl.style.transform = 'translate3d(0,' + (ap * -110).toFixed(1) + 'px,0)';
+      }
+    }
     gTicking = false;
   }
   window.addEventListener('scroll', function () {
@@ -510,7 +481,6 @@ if (y) y.textContent = String(new Date().getFullYear());
           gx += (nx - gx) * 0.05; hy += 0; hx += (nx - hx) * 0.05; hy += (ny - hy) * 0.05;
           if (glow) glow.style.transform = 'translate(calc(-50% + ' + gx * 90 + 'px), calc(-50% + ' + hy * 60 + 'px))';
           if (ringSvg) ringSvg.style.transform = 'translate(' + hx * 26 + 'px,' + hy * 20 + 'px)';
-          if (art) art.style.transform = 'translate3d(' + (hx * -16).toFixed(1) + 'px,' + (hy * -11).toFixed(1) + 'px,0)';
           if (title) title.style.transform = 'translate(' + hx * -10 + 'px,' + hy * -6 + 'px)';
           if (badge) badge.style.transform = 'translate(' + hx * 14 + 'px,' + hy * 10 + 'px)';
           if (hudX) hudX.textContent = (mx / window.innerWidth).toFixed(3);
